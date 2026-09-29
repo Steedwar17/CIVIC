@@ -1,0 +1,514 @@
+################################################################################
+# .gitignore — CIVIC Project
+# Generado para evitar subir archivos innecesarios, sensibles o privados.
+################################################################################
+
+
+# ==============================================================================
+# ARCHIVO ESPECÍFICO — NUNCA SE DEBE SUBIR (prohibición explícita)
+# ==============================================================================
+Arquitectura.md
+arquitectura.md
+ARQUITECTURA.MD
+[Aa]rquitectura.md
+
+
+# ==============================================================================
+# SISTEMA OPERATIVO — macOS
+# ==============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+Icon
+Network Trash Folder
+Temporary Items
+.apdisk
+.DocumentRevisions-V100
+.TemporaryItems
+.VolumeIcon.icns
+
+
+# ==============================================================================
+# SISTEMA OPERATIVO — Windows
+# ==============================================================================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+
+# ==============================================================================
+# SISTEMA OPERATIVO — Linux
+# ==============================================================================
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# ==============================================================================
+# EDITORES — VS Code
+# ==============================================================================
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.vscode/*.log
+
+
+# ==============================================================================
+# EDITORES — JetBrains (IntelliJ, WebStorm, PyCharm, etc.)
+# ==============================================================================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+.idea_modules/
+
+
+# ==============================================================================
+# EDITORES — Sublime Text
+# ==============================================================================
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+
+# ==============================================================================
+# EDITORES — Vim / Neovim
+# ==============================================================================
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+tags
+[._]*.un~
+
+
+# ==============================================================================
+# EDITORES — Emacs
+# ==============================================================================
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.org-id-locations
+*_archive
+*_flymake.*
+/eshell/history
+/eshell/lastdir
+/elpa/
+*.rel
+
+
+# ==============================================================================
+# EDITORES — Otros
+# ==============================================================================
+*.swp
+*.swo
+*.bak
+*.orig
+*.tmp
+.project
+.settings/
+.classpath
+
+
+# ==============================================================================
+# NODE.JS / JAVASCRIPT / TYPESCRIPT
+# ==============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.npm
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+.node_repl_history
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+.parcel-cache
+.cache/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist
+.docusaurus/
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+coverage/
+*.lcov
+.nyc_output
+
+
+# ==============================================================================
+# PYTHON
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.pytest_cache/
+cover/
+*.mo
+*.pot
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+instance/
+.webassets-cache
+.scrapy
+docs/_build/
+.pybuilder/
+target/
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+__pypackages__/
+celerybeat-schedule
+celerybeat.pid
+*.sage.py
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.spyderproject.db
+.spyproject
+.ropeproject
+/site
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+cython_debug/
+
+
+# ==============================================================================
+# JAVA / KOTLIN / ANDROID
+# ==============================================================================
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+hs_err_pid*
+replay_pid*
+.mtj.tmp/
+local.properties
+*.apk
+*.ap_
+*.dex
+gen/
+*.keystore
+!debug.keystore
+proguard/
+.gradle/
+captures/
+.externalNativeBuild/
+.cxx/
+
+
+# ==============================================================================
+# SWIFT / XCODE / iOS
+# ==============================================================================
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+.build/
+Pods/
+xcuserdata/
+
+
+# ==============================================================================
+# RUBY / RAILS / BUNDLER
+# ==============================================================================
+*.gem
+*.rbc
+/.config
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+.bundle/
+/vendor/bundle
+/lib/bundler/man/
+.rvmrc
+.rbenv-version
+.ruby-version
+Gemfile.lock
+
+
+# ==============================================================================
+# GO
+# ==============================================================================
+vendor/
+*.exe
+*.test
+*.out
+
+
+# ==============================================================================
+# RUST
+# ==============================================================================
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+
+# ==============================================================================
+# PHP / COMPOSER
+# ==============================================================================
+composer.lock
+
+
+# ==============================================================================
+# DART / FLUTTER
+# ==============================================================================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+*.g.dart
+*.freezed.dart
+
+
+# ==============================================================================
+# VARIABLES DE ENTORNO Y SECRETOS (CRÍTICO — NUNCA AL REPO)
+# ==============================================================================
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+*.cert
+*.crt
+*.csr
+*.cer
+secrets/
+secret/
+credentials/
+*.secret
+*_secret*
+*secret*.*
+*password*
+*passwd*
+*credentials*
+*api_key*
+*apikey*
+*token*
+*access_token*
+.aws/
+.gcloud/
+firebase-adminsdk*.json
+google-services.json
+GoogleService-Info.plist
+serviceAccountKey.json
+*.serviceaccount.json
+
+
+# ==============================================================================
+# BASES DE DATOS
+# ==============================================================================
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.mdb
+*.accdb
+*.dbf
+dump.rdb
+*.rdb
+
+
+# ==============================================================================
+# LOGS Y ARCHIVOS TEMPORALES
+# ==============================================================================
+*.log
+*.logs
+logs/
+log/
+*.tmp
+*.temp
+tmp/
+temp/
+*.pid
+*.seed
+*.pid.lock
+.cache/
+cache/
+
+
+# ==============================================================================
+# ARCHIVOS DE BUILD Y COMPILADOS
+# ==============================================================================
+*.o
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+dist/
+build/
+release/
+*.map
+
+
+# ==============================================================================
+# DOCKER
+# ==============================================================================
+docker-compose.override.yml
+.docker/
+
+
+# ==============================================================================
+# TERRAFORM / INFRAESTRUCTURA
+# ==============================================================================
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+
+# ==============================================================================
+# CI/CD Y HERRAMIENTAS CLOUD
+# ==============================================================================
+.netlify/
+.vercel/
+.firebase/
+.amplify/
+
+
+# ==============================================================================
+# PRUEBAS Y COBERTURA
+# ==============================================================================
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+test-report/
+junit.xml
+*.snap
+
+
+# ==============================================================================
+# PAQUETES Y ARCHIVOS COMPRIMIDOS
+# ==============================================================================
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+*.tgz
+*.bz2
+
+
+# ==============================================================================
+# ARCHIVOS DE CONFIGURACIÓN LOCAL
+# ==============================================================================
+*.local
+config.local.*
+settings.local.*
+local.config.*
+*.override.*
+
+
+# ==============================================================================
+# MISCELÁNEA
+# ==============================================================================
+.history/
+.husky/_/
+*.patch
+*.diff
+.editorconfig.bak
+Makefile.local
+lib-cov
