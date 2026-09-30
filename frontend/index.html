@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>CIVIC — Plataforma de Reporte Ciudadano</title>
+  <meta name="description"
+    content="CIVIC es una plataforma web para registrar incidencias urbanas, georreferenciarlas y conectar la colaboración comunitaria con la mejora de la ciudad." />
+  <meta name="theme-color" content="#0B0C0E" />
+
+  <meta property="og:title" content="CIVIC — Reporte Ciudadano" />
+  <meta property="og:description" content="Registra incidencias urbanas y colabora activamente en la mejora de tu comunidad." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div id="app" role="application" aria-label="CIVIC — Aplicación de reporte ciudadano">
+
+    <header class="top-header" role="banner">
+      <div class="header-container">
+        
+        <div class="logo" id="logo-home" role="button" tabindex="0" aria-label="CIVIC — Inicio">
+          <div class="logo-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <span class="logo-text">CIVIC</span>
+        </div>
+
+        <nav class="desktop-nav" aria-label="Navegación principal">
+          <button class="nav-item active" data-screen="home" type="button">Inicio</button>
+          <button class="nav-item" data-screen="map" type="button">Mapa</button>
+          <button class="nav-item" data-screen="ranking" type="button">Ranking</button>
+          <button class="nav-item" data-screen="chat" type="button">Asistente</button>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn-header-report" id="btn-header-report" type="button" aria-label="Registrar nuevo reporte">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+            <span>Reportar</span>
+          </button>
+          <button class="header-icon-btn notif-dot" id="btn-notifications" type="button" aria-label="Notificaciones">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 01-3.46 0"/>
+            </svg>
+          </button>
+          <button class="header-icon-btn" id="btn-profile-header" type="button" aria-label="Perfil de usuario">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <main id="main-content" role="main">
+
+      <section id="screen-home" class="screen active" aria-label="Inicio">
+
+        <div class="hero-wrapper">
+          <div class="hero-inner" role="region" aria-label="Presentación">
+            <div class="hero-badge">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              Plataforma activa · Cobertura regional
+            </div>
+            <h1 class="hero-title">
+              Gestión ciudadana colaborativa,<br>
+              <span class="highlight">soluciones visibles.</span>
+            </h1>
+            <p class="hero-subtitle">
+              Registra incidencias de infraestructura, servicios y aseo urbano. Conecta datos georreferenciados con acciones de impacto comunitario.
+            </p>
+            <div class="hero-cta-row">
+              <button class="btn-primary" id="btn-hero-report" type="button" aria-label="Hacer un reporte ahora">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+                Registrar incidencia
+              </button>
+              <button class="btn-secondary" id="btn-hero-learn" type="button" aria-label="Conocer el proceso">
+                Cómo funciona
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-container">
+          <div id="home-stats" role="region" aria-label="Estadísticas de impacto"></div>
+
+          <section class="section-block" aria-label="Catálogo de reportes recientes">
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">Incidencias recientes</h2>
+                <p class="section-desc">Reportes registrados por la comunidad en tiempo real.</p>
+              </div>
+              <button class="section-link-btn" id="btn-see-all-feed" type="button" aria-label="Ver todas las incidencias">
+                Ver todos
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <div id="home-pills" role="group" aria-label="Filtrar por categoría"></div>
+            <div id="home-feed" aria-live="polite" aria-label="Lista de reportes"></div>
+          </section>
+
+          <section class="section-block" aria-label="Participación comunitaria">
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">Participación comunitaria</h2>
+                <p class="section-desc">Líderes ciudadanos activos en el reporte y seguimiento de soluciones.</p>
+              </div>
+              <button class="section-link-btn" id="btn-see-all-ranking" type="button" aria-label="Ver clasificación completa">
+                Ver clasificación
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+            <div id="home-ranking"></div>
+          </section>
+
+          <section class="section-block" id="home-features-section" aria-label="Flujo de funcionamiento">
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">Proceso de atención ciudadana</h2>
+                <p class="section-desc">Metodología para convertir reportes vecinales en mejoras tangibles.</p>
+              </div>
+            </div>
+            <div id="home-features"></div>
+          </section>
+        </div>
+
+      </section>
+
+      <section id="screen-map" class="screen" aria-label="Mapa de incidencias">
+        <div class="content-container">
+          <div class="state-container">
+            <div class="state-icon-box" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+                <line x1="8" y1="2" x2="8" y2="18"/>
+                <line x1="16" y1="6" x2="16" y2="22"/>
+              </svg>
+            </div>
+            <h2 class="state-title">Mapa interactivo de incidencias</h2>
+            <p class="state-desc">Visualización geoespacial de reportes urbanos con filtros por cuadrante y nivel de severidad.</p>
+            <button class="btn-secondary mt-3" type="button" onclick="showScreen('home')">Regresar al inicio</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-ranking" class="screen" aria-label="Clasificación de ciudadanos">
+        <div class="content-container">
+          <div class="state-container">
+            <div class="state-icon-box" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"/>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+              </svg>
+            </div>
+            <h2 class="state-title">Clasificación y mérito cívico</h2>
+            <p class="state-desc">Reconocimiento a ciudadanos e iniciativas vecinales que promueven soluciones urbanas activas.</p>
+            <button class="btn-secondary mt-3" type="button" onclick="showScreen('home')">Regresar al inicio</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-chat" class="screen" aria-label="Asistente analítico">
+        <div class="content-container">
+          <div class="state-container">
+            <div class="state-icon-box" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <h2 class="state-title">Asistente de consulta ciudadana</h2>
+            <p class="state-desc">Análisis de patrones de incidencias, consultas temáticas por barrio e indicadores de gestión pública.</p>
+            <button class="btn-secondary mt-3" type="button" onclick="showScreen('home')">Regresar al inicio</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-auth" class="screen" aria-label="Cuenta de usuario">
+        <div class="content-container">
+          <div class="auth-card-wrap">
+            <div class="auth-card">
+              
+              <div class="auth-header">
+                <div class="logo-icon mb-2" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                  </svg>
+                </div>
+                <h2 class="auth-card-title">Acceso a CIVIC</h2>
+                <p class="auth-card-subtitle">Gestiona tus reportes y colabora en tu comunidad.</p>
+              </div>
+
+              <form class="auth-form" id="form-login" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="login-email">Correo electrónico</label>
+                  <input class="form-input" type="email" id="login-email" name="email" autocomplete="email"
+                    placeholder="usuario@ejemplo.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="login-password">Contraseña</label>
+                  <input class="form-input" type="password" id="login-password" name="password"
+                    autocomplete="current-password" placeholder="••••••••" required />
+                </div>
+
+                <button type="submit" class="btn-primary w-full">
+                  Ingresar a la cuenta
+                </button>
+
+                <p class="auth-toggle-text">
+                  ¿No tienes una cuenta aún?
+                  <button type="button" class="auth-toggle-link" id="link-show-register">Regístrate</button>
+                </p>
+              </form>
+
+              <form class="auth-form hidden" id="form-register" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="reg-name">Nombre completo</label>
+                  <input class="form-input" type="text" id="reg-name" name="nombre" autocomplete="name"
+                    placeholder="Nombre y apellido" required maxlength="60" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="reg-email">Correo electrónico</label>
+                  <input class="form-input" type="email" id="reg-email" name="email" autocomplete="email"
+                    placeholder="usuario@ejemplo.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="reg-password">Contraseña</label>
+                  <input class="form-input" type="password" id="reg-password" name="password" autocomplete="new-password"
+                    placeholder="Mínimo 8 caracteres" required minlength="8" />
+                </div>
+
+                <button type="submit" class="btn-primary w-full">
+                  Crear cuenta nueva
+                </button>
+
+                <p class="auth-toggle-text">
+                  ¿Ya dispones de una cuenta?
+                  <button type="button" class="auth-toggle-link" id="link-show-login">Iniciar sesión</button>
+                </p>
+              </form>
+
+              <div class="auth-footer-actions">
+                <button id="btn-logout" class="btn-text" type="button">
+                  Cerrar sesión activa
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <nav class="mobile-bottom-nav" role="navigation" aria-label="Navegación móvil">
+      <button class="nav-item active" data-screen="home" id="m-nav-home" type="button" aria-label="Inicio">
+        <span class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </span>
+        <span class="nav-text">Inicio</span>
+      </button>
+
+      <button class="nav-item" data-screen="map" id="m-nav-map" type="button" aria-label="Mapa">
+        <span class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+            <line x1="8" y1="2" x2="8" y2="18"/>
+            <line x1="16" y1="6" x2="16" y2="22"/>
+          </svg>
+        </span>
+        <span class="nav-text">Mapa</span>
+      </button>
+
+      <button class="mobile-report-btn" id="btn-report" type="button" aria-label="Registrar incidencia">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+          <circle cx="12" cy="13" r="4"/>
+        </svg>
+      </button>
+
+      <button class="nav-item" data-screen="ranking" id="m-nav-ranking" type="button" aria-label="Ranking">
+        <span class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </span>
+        <span class="nav-text">Ranking</span>
+      </button>
+
+      <button class="nav-item" data-screen="chat" id="m-nav-chat" type="button" aria-label="Asistente">
+        <span class="nav-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </span>
+        <span class="nav-text">Asistente</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <div id="toast-container" aria-live="assertive" aria-atomic="true" role="status"></div>
+
+  <script type="module" src="/js/app.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+
+  <script type="module">
+    import { showScreen } from '/js/app.js';
+
+    document.getElementById('btn-hero-report')?.addEventListener('click', () => {
+      document.getElementById('btn-header-report')?.click() || document.getElementById('btn-report')?.click();
+    });
+
+    document.getElementById('btn-hero-learn')?.addEventListener('click', () => {
+      document.getElementById('home-features-section')?.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('btn-see-all-feed')?.addEventListener('click', () => {
+      showScreen('map');
+    });
+
+    document.getElementById('btn-see-all-ranking')?.addEventListener('click', () => {
+      showScreen('ranking');
+    });
+
+    document.getElementById('btn-profile-header')?.addEventListener('click', () => {
+      showScreen('auth');
+    });
+
+    document.getElementById('btn-notifications')?.addEventListener('click', () => {
+      window.showToast?.('No tienes notificaciones pendientes', 'info');
+    });
+  </script>
+
+</body>
+
+</html>
