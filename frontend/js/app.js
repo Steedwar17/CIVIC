@@ -1,5 +1,6 @@
 import { initHome } from './home.js';
 import { initAuth } from './auth.js';
+import { startReportFlow } from './report.js';
 
 const SESSION = {
   token: localStorage.getItem('civic_token') || null,
@@ -36,7 +37,14 @@ export function showToast(msg, type = 'info', duration = 3000) {
   const toast = document.createElement('div');
   toast.className = `toast ${type}`;
   const icon = TOAST_ICONS[type] || TOAST_ICONS.info;
-  toast.innerHTML = `<span class="toast-icon" aria-hidden="true">${icon}</span><span class="toast-msg">${msg}</span>`;
+  const iconSlot = document.createElement('span');
+  iconSlot.className = 'toast-icon';
+  iconSlot.setAttribute('aria-hidden', 'true');
+  iconSlot.innerHTML = icon; // SVG estático
+  const msgSlot = document.createElement('span');
+  msgSlot.className = 'toast-msg';
+  msgSlot.textContent = msg; // nunca innerHTML con texto dinámico
+  toast.append(iconSlot, msgSlot);
   container.appendChild(toast);
   setTimeout(() => {
     toast.classList.add('toast-fadeout');
@@ -62,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('Inicia sesión para registrar un reporte', 'info');
       return;
     }
-    showToast('Módulo de captura en desarrollo', 'info');
+    startReportFlow();
   };
 
   document.getElementById('btn-report')?.addEventListener('click', triggerReport);

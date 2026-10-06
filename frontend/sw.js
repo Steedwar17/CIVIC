@@ -1,5 +1,9 @@
-const CACHE_NAME = 'civic-v1';
-const STATIC_ASSETS = ['/', '/index.html', '/css/main.css', '/js/app.js', '/js/home.js', '/js/auth.js'];
+const CACHE_NAME = 'civic-v2';
+const STATIC_ASSETS = [
+  '/', '/index.html', '/css/main.css', '/css/phase1.css',
+  '/js/app.js', '/js/home.js', '/js/auth.js', '/js/api.js',
+  '/js/camera.js', '/js/geo.js', '/js/report.js', '/js/feed.js',
+];
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -18,8 +22,16 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+  // Solo estáticos propios; la API y /uploads (otro origen) van directo a la red.
+  if (event.request.method !== 'GET' || url.origin !== self.location.origin) return;
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request))
+    fetch(event.request)
+      .then(res => {
+        const copy = res.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy)).catch(() => {});
+        return res;
+      })
+      .catch(() => caches.match(event.request))
   );
 });

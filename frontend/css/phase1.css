@@ -1,0 +1,55 @@
+/* Fase 1: estilos del formulario de reporte (F1/F2) y elementos del feed (F6). */
+[hidden] { display: none !important; }
+body.modal-open { overflow: hidden; }
+
+.report-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: flex-end; justify-content: center;
+  background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);
+  animation: phase1-fade 0.2s ease;
+}
+@media (min-width: 640px) { .report-overlay { align-items: center; } }
+
+.report-modal {
+  width: 100%; max-width: 480px; max-height: 92dvh; overflow-y: auto;
+  background: var(--civic-surface-elev); border: 1px solid var(--civic-border-strong);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0; padding: 20px;
+  display: flex; flex-direction: column; gap: 14px; box-shadow: var(--shadow-elevated);
+}
+@media (min-width: 640px) { .report-modal { border-radius: var(--radius-xl); } }
+.report-modal-title { font-size: 1.15rem; font-weight: 600; }
+.report-preview { width: 100%; max-height: 240px; object-fit: cover; border-radius: var(--radius-md); }
+
+.report-geo {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; justify-content: space-between;
+  padding: 10px 12px; border-radius: var(--radius-sm); font-size: 0.85rem;
+  background: var(--civic-green-subtle); border: 1px solid var(--civic-green-border);
+}
+.report-geo.error { background: rgba(220, 38, 38, 0.12); border-color: rgba(220, 38, 38, 0.4); }
+.report-geo-retry { min-height: 44px; }
+
+.report-desc { width: 100%; resize: vertical; min-height: 96px; }
+.report-counter { color: var(--civic-text-secondary); display: block; margin-top: 4px; text-align: right; }
+.report-anon { display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: 0.9rem; }
+.report-privacy { color: var(--civic-text-secondary); font-size: 0.78rem; }
+.report-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.report-actions button { min-height: 44px; }
+.report-actions button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.card-photo { width: 100%; height: 100%; min-height: 200px; object-fit: cover; display: block; }
+.like-btn.active { color: #EF4444; }
+.like-btn.pop svg { animation: phase1-pop 0.35s ease; }
+.card-action-btn { min-height: 44px; }
+
+.comments-panel { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+.comment-row { font-size: 0.88rem; line-height: 1.4; word-break: break-word; }
+.comment-form { display: flex; gap: 8px; }
+.comment-form .form-input { flex: 1; min-width: 0; }
+
+.feed-sentinel { min-height: 24px; text-align: center; color: var(--civic-text-secondary); font-size: 0.85rem; padding: 12px 0; }
+
+@keyframes phase1-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes phase1-pop { 0% { transform: scale(1); } 50% { transform: scale(1.45); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .report-overlay, .like-btn.pop svg { animation: none; }
+}
